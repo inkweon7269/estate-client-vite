@@ -1,0 +1,6 @@
+@use '@/styles/base/variables' as *;
+
+:export {
+  colorPrimary: $color-primary;
+  inputPaddingBlock: $input-padding-block;
+}

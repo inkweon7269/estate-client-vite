@@ -1,11 +1,10 @@
 import { ErrorMessage } from '@hookform/error-message';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { Button } from 'antd';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 
 import { EMAIL_SCHEMA, PASSWORD_SCHEMA } from '@/schemas/auth.ts';
-
-import Button from '@/components/Button.tsx';
 
 interface LoginInputs {
     email: string;
@@ -40,7 +39,9 @@ const Home = () => {
                 <input type='password' {...register('password')} />
                 <ErrorMessage errors={errors} name='password' />
             </div>
-            <Button />
+            <Button type='primary' htmlType='submit'>
+                로그인
+            </Button>
         </form>
     );
 };
