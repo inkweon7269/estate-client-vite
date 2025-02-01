@@ -8,6 +8,13 @@ export default defineConfig({
     resolve: {
         alias: [{ find: '@', replacement: '/src' }],
     },
+    css: {
+        preprocessorOptions: {
+            scss: {
+                api: 'modern-compiler',
+            },
+        },
+    },
     server: {
         port: 3000,
     },
