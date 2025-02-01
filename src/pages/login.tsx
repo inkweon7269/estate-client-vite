@@ -1,3 +1,5 @@
+import { postLoginApi } from '@/api/auth.ts';
+import { setCookie } from '@/utilies';
 import { ErrorMessage } from '@hookform/error-message';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Button } from 'antd';
@@ -23,8 +25,16 @@ const Login = () => {
         formState: { errors },
     } = useForm<LoginInputs>({ resolver: yupResolver(schema) });
 
-    const onSubmit: SubmitHandler<LoginInputs> = (data) => {
-        console.log(data);
+    const onSubmit: SubmitHandler<LoginInputs> = async (data) => {
+        try {
+            const res = await postLoginApi(data);
+            const { accessToken, refreshToken } = res.data;
+
+            setCookie('accessToken', accessToken, { path: '/' });
+            setCookie('refreshToken', refreshToken, { path: '/' });
+        } catch (error) {
+            console.error(error);
+        }
     };
 
     return (
