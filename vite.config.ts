@@ -1,10 +1,10 @@
 import react from '@vitejs/plugin-react-swc';
 import { defineConfig } from 'vite';
-import withReactRouter from 'vite-plugin-next-react-router';
+import GlobPlugin from 'vite-plugin-glob';
 
 // https://vite.dev/config/
 export default defineConfig({
-    plugins: [react(), withReactRouter()],
+    plugins: [react(), GlobPlugin()],
     resolve: {
         alias: [{ find: '@', replacement: '/src' }],
     },

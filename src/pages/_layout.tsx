@@ -1,19 +1,31 @@
-import { Suspense } from 'react';
+import React from 'react';
 
-import theme from '@/styles/theme';
-import { ConfigProvider } from 'antd';
-import { Outlet } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
-const Layout = () => {
+const LayoutMain: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     return (
-        <ConfigProvider theme={theme}>
-            <div>
-                <Suspense fallback={'loading...'}>
-                    <Outlet />
-                </Suspense>
-            </div>
-        </ConfigProvider>
+        <div>
+            <header>
+                <nav>
+                    <ul>
+                        <li>
+                            <NavLink to='/'>Home</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to='/login'>Login</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to='/about'>About</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to='/user'>User</NavLink>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+            <main>{children}</main>
+        </div>
     );
 };
 
-export default Layout;
+export default LayoutMain;

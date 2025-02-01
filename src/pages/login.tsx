@@ -16,7 +16,7 @@ const schema = yup.object({
     password: PASSWORD_SCHEMA,
 });
 
-const Home = () => {
+const Login = () => {
     const {
         register,
         handleSubmit,
@@ -46,4 +46,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default Login;
