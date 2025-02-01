@@ -1,14 +1,10 @@
-import Home from '@/pages/Home.tsx';
+import { useRoutes } from 'react-router-dom';
 
-import Button from '@/components/Button.tsx';
+import { routes } from './routes';
 
 const App = () => {
-    return (
-        <>
-            <Button />
-            <Home />
-        </>
-    );
+    const elem = useRoutes(routes);
+    return elem;
 };
 
 export default App;
