@@ -1,7 +1,5 @@
-import Button from '@/components/Button';
-
 const Home = () => {
-    return <Button />;
+    return <h1>Home</h1>;
 };
 
 export default Home;
