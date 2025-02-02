@@ -3,13 +3,9 @@ import { useEffect, useState } from 'react';
 import { getUserProfileApi } from '@/api/auth.ts';
 import { getCookie } from '@/utilies';
 
-interface UserResponse {
-    id: number;
-    createdAt: string;
-    email: string;
-}
+import { UserResponse } from '@/components/auth/interface/auth.response.interface.ts';
 
-const User = () => {
+const UserProfile = () => {
     const [user, setUser] = useState<UserResponse | null>(null);
 
     useEffect(() => {
@@ -29,4 +25,4 @@ const User = () => {
     );
 };
 
-export default User;
+export default UserProfile;
