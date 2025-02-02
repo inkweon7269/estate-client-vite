@@ -15,9 +15,6 @@ const LayoutMain: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                             <NavLink to='/login'>Login</NavLink>
                         </li>
                         <li>
-                            <NavLink to='/about'>About</NavLink>
-                        </li>
-                        <li>
                             <NavLink to='/user'>User</NavLink>
                         </li>
                     </ul>
