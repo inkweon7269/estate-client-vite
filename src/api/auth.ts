@@ -1,4 +1,4 @@
-import axiosInstance from '@/api/index.ts';
+import { axiosInstance, axiosRefreshInstance } from '@/api/index.ts';
 
 export const postLoginApi = ({ email, password }: { email: string; password: string }) => {
     const basicToken = btoa(`${email}:${password}`);
@@ -11,8 +11,18 @@ export const postLoginApi = ({ email, password }: { email: string; password: str
     });
 };
 
-export const postAuthTokenAccessTokenApi = (refreshToken: string) => {
+export const getUserProfileApi = (accessToken: string) => {
     return axiosInstance({
+        method: 'GET',
+        url: `/v1/user/profile`,
+        headers: {
+            Authorization: `Bearer ${accessToken}`,
+        },
+    });
+};
+
+export const postAuthTokenAccessTokenApi = (refreshToken: string) => {
+    return axiosRefreshInstance({
         method: 'POST',
         url: `/v1/auth/token/access`,
         headers: {
@@ -22,21 +32,11 @@ export const postAuthTokenAccessTokenApi = (refreshToken: string) => {
 };
 
 export const postAuthTokenRefreshTokenApi = (refreshToken: string) => {
-    return axiosInstance({
+    return axiosRefreshInstance({
         method: 'POST',
         url: `/v1/auth/token/refresh`,
         headers: {
             Authorization: `Bearer ${refreshToken}`,
-        },
-    });
-};
-
-export const getUserProfileApi = (accessToken: string) => {
-    return axiosInstance({
-        method: 'GET',
-        url: `/v1/user/profile`,
-        headers: {
-            Authorization: `Bearer ${accessToken}`,
         },
     });
 };

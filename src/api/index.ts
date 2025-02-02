@@ -18,6 +18,14 @@ const handleTokenError = () => {
     location.href = '/login';
 };
 
+const axiosRefreshInstance = axios.create({
+    baseURL: 'http://localhost:8000',
+    timeout: 10000,
+    headers: {
+        'Content-Type': 'application/json',
+    },
+});
+
 const getAccessAndRefreshToken = mem(
     async () => {
         try {
@@ -101,4 +109,4 @@ axiosInstance.interceptors.response.use(
     },
 );
 
-export default axiosInstance;
+export { axiosInstance, axiosRefreshInstance };
