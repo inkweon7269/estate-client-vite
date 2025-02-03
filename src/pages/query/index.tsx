@@ -1,10 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
 
 const TodoPage = () => {
-    const { isPending, isError, error, data, isFetching } = useQuery({
-        queryKey: ['repoData'],
+    const { isPending, isError, error, data } = useQuery({
+        queryKey: ['posts'],
         queryFn: async () => {
-            const response = await fetch('https://api.github.com/repos/TanStack/query');
+            const response = await fetch('https://jsonplaceholder.typicode.com/posts');
             return response.json();
         },
     });
@@ -14,13 +14,11 @@ const TodoPage = () => {
     if (isError) return 'An error has occurred: ' + error.message;
 
     return (
-        <div>
-            <h1>{data.full_name}</h1>
-            <p>{data.description}</p>
-            <strong>👀 {data.subscribers_count}</strong> <strong>✨ {data.stargazers_count}</strong>{' '}
-            <strong>🍴 {data.forks_count}</strong>
-            <div>{isFetching ? 'Updating...' : ''}</div>
-        </div>
+        <ul>
+            {data.map((post: { id: number; title: string }) => (
+                <li key={post.id}>{post.title}</li>
+            ))}
+        </ul>
     );
 };
 
