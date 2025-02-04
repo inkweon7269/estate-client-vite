@@ -1,4 +1,4 @@
-import LoginFrom from '@/components/auth/LoginFrom.tsx';
+import LoginFrom from '@/features/auth/components/LoginFrom.tsx';
 
 const LoginPage = () => {
     return <LoginFrom />;
