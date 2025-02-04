@@ -1,10 +1,8 @@
-import { postLoginApi } from '@/api/auth.ts';
-import { setCookie } from '@/utilies';
+import { useLoginMutation } from '@/hooks/user.ts';
 import { ErrorMessage } from '@hookform/error-message';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Button } from 'antd';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
 import * as yup from 'yup';
 
 import { EMAIL_SCHEMA, PASSWORD_SCHEMA } from '@/schemas/auth.ts';
@@ -17,7 +15,7 @@ const schema = yup.object({
 });
 
 const LoginFrom = () => {
-    const navigate = useNavigate();
+    const { mutate } = useLoginMutation();
     const {
         register,
         handleSubmit,
@@ -25,17 +23,7 @@ const LoginFrom = () => {
     } = useForm<LoginRequest>({ resolver: yupResolver(schema) });
 
     const onSubmit: SubmitHandler<LoginRequest> = async (data) => {
-        try {
-            const res = await postLoginApi(data);
-            const { accessToken, refreshToken } = res.data;
-
-            setCookie('accessToken', accessToken, { path: '/' });
-            setCookie('refreshToken', refreshToken, { path: '/' });
-
-            navigate('/profile');
-        } catch (error) {
-            console.error(error);
-        }
+        mutate(data);
     };
 
     return (
