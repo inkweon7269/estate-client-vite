@@ -1,4 +1,4 @@
-import { useUserProfileQuery } from '@/hooks/user.ts';
+import { useUserProfileQuery } from '@/components/auth/hooks/user.ts';
 
 const UserProfile = () => {
     const { isPending, isError, error, data } = useUserProfileQuery();
