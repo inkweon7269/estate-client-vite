@@ -1,3 +1,5 @@
+import { useLoginMutation } from '@/features/auth/hooks/user.ts';
+import { LoginRequest } from '@/features/auth/interface/auth.request.interface.ts';
 import { ErrorMessage } from '@hookform/error-message';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Button } from 'antd';
@@ -5,9 +7,6 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 
 import { EMAIL_SCHEMA, PASSWORD_SCHEMA } from '@/schemas/auth.ts';
-
-import { useLoginMutation } from '@/components/auth/hooks/user.ts';
-import { LoginRequest } from '@/components/auth/interface/auth.request.interface.ts';
 
 const schema = yup.object({
     email: EMAIL_SCHEMA,

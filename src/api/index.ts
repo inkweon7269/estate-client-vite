@@ -2,7 +2,7 @@ import { getCookie, removeCookie, setCookie } from '@/utilies';
 import axios, { AxiosInstance, InternalAxiosRequestConfig } from 'axios';
 import mem from 'mem';
 
-import { postAuthTokenAccessTokenApi, postAuthTokenRefreshTokenApi } from './auth';
+import { postAuthTokenAccessTokenApi, postAuthTokenRefreshTokenApi } from '../features/auth/api/auth.ts';
 
 const EXCERPT_APIS = ['/v1/auth/login', '/v1/auth/token/access', '/v1/auth/token/refresh'];
 const isExcerptApi = (url: string): boolean => {

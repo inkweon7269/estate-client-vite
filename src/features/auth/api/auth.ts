@@ -1,4 +1,4 @@
-import { axiosInstance, axiosRefreshInstance } from '@/api/index.ts';
+import { axiosInstance, axiosRefreshInstance } from '@/api';
 
 export const postLoginApi = ({ email, password }: { email: string; password: string }) => {
     const basicToken = btoa(`${email}:${password}`);
