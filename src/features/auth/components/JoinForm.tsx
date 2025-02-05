@@ -1,4 +1,4 @@
-import { useJoinMutation } from '@/features/auth/hooks/user.ts';
+import { useJoinMutation } from '@/features/auth/hooks/mutations/useJoinMutation.ts';
 import { JoinRequest } from '@/features/auth/interface/auth.request.interface.ts';
 import { ErrorMessage } from '@hookform/error-message';
 import { yupResolver } from '@hookform/resolvers/yup';

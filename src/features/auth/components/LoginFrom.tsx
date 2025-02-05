@@ -1,4 +1,4 @@
-import { useLoginMutation } from '@/features/auth/hooks/user.ts';
+import { useLoginMutation } from '@/features/auth/hooks/mutations/useLoginMutation.ts';
 import { LoginRequest } from '@/features/auth/interface/auth.request.interface.ts';
 import { ErrorMessage } from '@hookform/error-message';
 import { yupResolver } from '@hookform/resolvers/yup';
