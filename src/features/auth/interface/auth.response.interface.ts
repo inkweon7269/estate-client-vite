@@ -3,3 +3,10 @@ export interface UserProfileResponse {
     createdAt: string;
     email: string;
 }
+
+export interface JoinResponse {
+    accessToken: string;
+    refreshToken: string;
+}
+
+export interface LoginResponse extends JoinResponse {}

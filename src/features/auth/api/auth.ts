@@ -1,6 +1,15 @@
 import { axiosInstance, axiosRefreshInstance } from '@/api';
+import { JoinRequest, LoginRequest } from '@/features/auth/interface/auth.request.interface.ts';
 
-export const postLoginApi = ({ email, password }: { email: string; password: string }) => {
+export const postJoinApi = (data: JoinRequest) => {
+    return axiosInstance({
+        method: 'POST',
+        url: `/v1/auth/register`,
+        data,
+    });
+};
+
+export const postLoginApi = ({ email, password }: LoginRequest) => {
     const basicToken = btoa(`${email}:${password}`);
     return axiosInstance({
         method: 'POST',

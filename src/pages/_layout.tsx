@@ -12,10 +12,10 @@ const LayoutMain: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                             <NavLink to='/'>Home</NavLink>
                         </li>
                         <li>
-                            <NavLink to='/query'>Query</NavLink>
+                            <NavLink to='/login'>로그인</NavLink>
                         </li>
                         <li>
-                            <NavLink to='/login'>Login</NavLink>
+                            <NavLink to='/join'>회원가입</NavLink>
                         </li>
                         <li>
                             <NavLink to='/profile'>Profile</NavLink>
