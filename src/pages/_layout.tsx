@@ -20,6 +20,9 @@ const LayoutMain: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                         <li>
                             <NavLink to='/profile'>Profile</NavLink>
                         </li>
+                        <li>
+                            <NavLink to='/area'>Area</NavLink>
+                        </li>
                     </ul>
                 </nav>
             </header>
