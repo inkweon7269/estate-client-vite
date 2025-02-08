@@ -1,6 +1,5 @@
 import { postReportApi } from '@/features/report/api/report.ts';
 import { CreateReportRequest } from '@/features/report/interface/report.request.interface.ts';
-import { getCookie } from '@/utilies';
 import { useMutation } from '@tanstack/react-query';
 import { isAxiosError } from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -10,9 +9,7 @@ export const useCreateReportMutation = () => {
 
     return useMutation({
         mutationFn: async (createReportRequest: CreateReportRequest) => {
-            const accessToken = getCookie('accessToken');
-            const res = await postReportApi(accessToken, createReportRequest);
-            return res.data;
+            await postReportApi(createReportRequest);
         },
         onSuccess: () => {
             navigate('/report');

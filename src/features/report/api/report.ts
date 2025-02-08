@@ -5,55 +5,40 @@ import {
     UpdateReportRequest,
 } from '@/features/report/interface/report.request.interface.ts';
 
-export const getReportsApi = (accessToken: string, params: PaginationRequest) => {
+export const getReportsApi = (params: PaginationRequest) => {
     return axiosInstance({
         method: 'GET',
         url: `/v1/report`,
-        headers: {
-            Authorization: `Bearer ${accessToken}`,
-        },
         params,
     });
 };
 
-export const getReportApi = (accessToken: string, id: number) => {
+export const getReportApi = (id: number) => {
     return axiosInstance({
         method: 'GET',
         url: `/v1/report/${id}`,
-        headers: {
-            Authorization: `Bearer ${accessToken}`,
-        },
     });
 };
 
-export const postReportApi = (accessToken: string, data: CreateReportRequest) => {
+export const postReportApi = (data: CreateReportRequest) => {
     return axiosInstance({
         method: 'POST',
         url: `/v1/report`,
-        headers: {
-            Authorization: `Bearer ${accessToken}`,
-        },
         data,
     });
 };
 
-export const putReportApi = (accessToken: string, id: number, data: UpdateReportRequest) => {
+export const putReportApi = (id: number, data: UpdateReportRequest) => {
     return axiosInstance({
         method: 'PUT',
         url: `/v1/report/${id}`,
-        headers: {
-            Authorization: `Bearer ${accessToken}`,
-        },
         data,
     });
 };
 
-export const deleteReportApi = (accessToken: string, id: number) => {
+export const deleteReportApi = (id: number) => {
     return axiosInstance({
         method: 'DELETE',
         url: `/v1/report/${id}`,
-        headers: {
-            Authorization: `Bearer ${accessToken}`,
-        },
     });
 };

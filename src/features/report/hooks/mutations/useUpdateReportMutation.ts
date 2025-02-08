@@ -1,15 +1,12 @@
 import { putReportApi } from '@/features/report/api/report.ts';
 import { UpdateReportRequest } from '@/features/report/interface/report.request.interface.ts';
-import { getCookie } from '@/utilies';
 import { useMutation } from '@tanstack/react-query';
 import { isAxiosError } from 'axios';
 
 export const useUpdateReportMutation = (id: number) => {
     return useMutation({
         mutationFn: async (updateReportRequest: UpdateReportRequest) => {
-            const accessToken = getCookie('accessToken');
-            const res = await putReportApi(accessToken, id, updateReportRequest);
-            return res.data;
+            await putReportApi(id, updateReportRequest);
         },
         onSuccess: async () => {
             console.log('onSuccess');

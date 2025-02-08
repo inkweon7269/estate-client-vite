@@ -20,13 +20,10 @@ export const postLoginApi = ({ email, password }: LoginRequest) => {
     });
 };
 
-export const getUserProfileApi = (accessToken: string) => {
+export const getUserProfileApi = () => {
     return axiosInstance({
         method: 'GET',
         url: `/v1/user/profile`,
-        headers: {
-            Authorization: `Bearer ${accessToken}`,
-        },
     });
 };
 
